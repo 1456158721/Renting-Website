@@ -1,0 +1,167 @@
+/*<!--侧栏开始-->*/
+/*页面整体属性*/
+body{
+    padding: 0;
+    margin: 0;
+    background: whitesmoke;
+}
+/*侧栏div*/
+#left{
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+/*侧栏问候语*/
+.hello{
+    padding: 10px;
+    text-align: center;
+}
+/*侧栏按钮*/
+.leftButton{
+    margin-top: 50px !important;
+    display: block !important;
+}
+.leftButtonHover:hover {
+    margin-left: 50px;
+}
+/*<!--主体开始-->*/
+/*右侧div*/
+#right{
+    width: 80%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/*<!--顶栏开始-->*/
+#top{
+    background-color: #1B9AF7;
+    width: 100%;
+    height: 125px;
+}
+/*收起侧栏*/
+#isHide{
+    left: 50px;
+}
+#information{
+    left: 5%;
+    font-size: 25px;
+    background-color: white;
+    width: 90%;
+    height: 80px;
+    position: relative;
+    padding-left: 50px;
+    border: #1B9AF7 3px solid;
+    border-radius: 25px;
+    top: 25px;
+}
+/*顶部用户栏*/
+#topUserMenu{
+    position: absolute;
+    right: 3%;
+    top: 2%;
+    width: 160px;
+}
+#topUser{
+    position: absolute;
+    right: 7%;
+    top: 2%;
+    color: white;
+    cursor: default;
+}
+/*顶部用户栏右侧图标*/
+#topUser>img{
+    width: 20px;
+    vertical-align: middle;
+}
+/*顶部用户栏悬浮窗*/
+#headSuspensionWindow{
+    display: none;
+    position: relative;
+    background-color: white;
+    top: 35px;
+    box-shadow: 0 10px 40px 0
+    rgba(51, 73, 94, 0.15);
+}
+#headSuspensionWindow>p{
+    padding: 5px;
+}
+#headSuspensionWindow>p>img{
+    width: 20px;
+    vertical-align: middle;
+    margin: 0 35px 0 10px;
+}
+/*注销按钮*/
+#logout:hover{
+    cursor: pointer;
+}
+/*正文*/
+#main{
+    left: 5%;
+    background-color: white;
+    width: 90%;
+    position: relative;
+    line-height: 25px;
+    top: 75px;
+    padding-left: 25px;
+    border: #1B9AF7 3px solid;
+    border-radius: 50px;
+    display: -webkit-box;
+}
+/*用户中心*/
+#main > div {
+    color: gray;
+    font-size: 15px;
+    display: block;
+    max-width: 193px;
+    width: inherit;
+    margin: 20px auto;
+    padding: 15px;
+    position: relative;
+}
+#main p {
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+#other>button{
+    margin: 20px auto;
+}
+#thisUserId{
+    display: none;
+}
+/*用户列表*/
+#userList{
+    left: 5%;
+    background-color: white;
+    width: 90%;
+    position: relative;
+    line-height: 25px;
+    top: 110px;
+    border: #1B9AF7 3px solid;
+    border-radius: 50px;
+    display: -webkit-box;
+}
+#userList>div{
+    margin: 25px auto;
+}
+/*添加用户表格*/
+.selectClass div {
+    width: max-content;
+    margin: 10px auto;
+}
+/*关于*/
+#about{
+    position: relative;
+    margin: 50px auto;
+    height: auto;
+    /*left: 40%;*/
+}
+#about>p{
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 0;
+}

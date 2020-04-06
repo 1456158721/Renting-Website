@@ -1,0 +1,74 @@
+package com.qwq.dao;
+
+import com.qwq.entity.User;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+
+/**
+ * 账户类
+ * @Author: QWQ
+ * @Date: 2019.11.01 18:06:39
+ * @Version: 2.0
+ */
+/*@Component("account")*/
+public class Account extends HibernateDaoSupport {
+    public void updateUser( User user ) {
+        assert this.getHibernateTemplate() != null;
+        this.getHibernateTemplate().saveOrUpdate( user );
+    }
+
+    public void delUser( User user ) {
+        assert this.getHibernateTemplate() != null;
+        this.getHibernateTemplate().delete( user );
+    }
+
+    public User login( String userName,String userPwd ) {
+        /*assert this.getHibernateTemplate() != null;
+        List<User> list = this.getHibernateTemplate().findByExample( new User(userName,userPwd) );
+        if( list.size() == 1 ) {
+            return list.get( 0 );
+        } else {
+            return null;
+        }*/
+        return new User(233,"QWQ",1456158721,"QAQ","true");
+    }
+
+    public User getUser( Integer userId ) {
+        assert this.getHibernateTemplate() != null;
+        List<User> list = this.getHibernateTemplate().findByExample( new User(userId) );
+        if( list.size() == 1 ) {
+            return list.get( 0 );
+        } else {
+            return null;
+        }
+    }
+
+    public List<User> getAllUser( Integer page,Integer rows ) {
+        assert this.getHibernateTemplate() != null;
+        /*List<User> list = this.getHibernateTemplate().
+        Session session = HibernateUtil.getSession();
+        Query<User> query = session.createQuery( "from User " );
+        query.setFirstResult( ( page - 1 ) * rows );
+        query.setMaxResults( rows );*/
+        return this.getHibernateTemplate().findByExample( new User(), page, rows );
+    }
+
+    /*public long count() {
+        return this.getHibernateTemplate().execute(
+                session -> {
+                    Query query = session.createQuery( "select  count(*) from User " );
+                    return ( long )query.uniqueResult();
+                }
+        );
+    }
+    @Resource
+    public void setSessionFacotry( SessionFactory sessionFacotry) {
+        super.setSessionFactory(sessionFacotry);
+    }*/
+}

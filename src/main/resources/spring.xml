@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="com.qwq"/>
+	<!--  配置数据源 -->
+	<bean name="datasource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<!-- 驱动  -->
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<!-- url -->
+		<property name="url" value="jdbc:oracle:thin:@//localhost:1521/rentManagement"/>
+		<!--  用户名  -->
+		<property name="username" value="scott"/>
+		<!--  密码 -->
+		<property name="password" value="20000321"/>
+	</bean>
+	<!-- 配置 session 工厂 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" lazy-init="false">
+		<property name="dataSource" ref="datasource"/>
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+		<!-- 扫描实体包 -->
+		<property name="packagesToScan" value="com.qwq.entity"/>
+	</bean>
+	<!-- 配置 事务 管理器 -->
+	<bean id="transactionManager"  class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- 配置 声明式 事务  -->
+	<tx:advice  id="txAdvice">
+		<tx:attributes>
+			<tx:method name="add*"/>
+			<tx:method name="save*"/>
+			<tx:method name="del*"/>
+			<tx:method name="update*"/>
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="get*"  read-only="true" />
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- 配置事务切点，并把切点和事务属性关联起来 -->
+	<aop:config>
+		<!-- 切点 -->
+		<aop:pointcut expression="execution(* com.qwq.action.*.*(..))" id="txPointcut"/>
+		<!-- 织入 -->
+		<aop:advisor advice-ref="txAdvice"  pointcut-ref="txPointcut"/>
+	</aop:config>
+</beans>

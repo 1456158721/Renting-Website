@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout pattern="[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n"/>
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.opensymphony.xwork2" level="debug"/>
+		<Logger name="org.apache.struts2" level="debug"/>
+		<Root level="warn">
+			<AppenderRef ref="STDOUT"/>
+		</Root>
+	</Loggers>
+</Configuration>
+<!--
+log4j.rootLogger = debug,stdout,D,E
+log4j.appender.stdout = org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target = System.out
+log4j.appender.stdout.layout = org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+log4j.appender.D = org.apache.log4j.FileAppender
+log4j.appender.D.File = C:/Users/14561/Documents/Development/HTML/IDEA/【Hibermate】租房系统/log/debug.log
+log4j.appender.D.Append = true
+log4j.appender.D.Threshold = DEBUG
+log4j.appender.D.Encoding=UTF-8
+log4j.appender.D.layout = org.apache.log4j.PatternLayout
+log4j.appender.D.layout.ConversionPattern = [debug] %n[\u8017\u65F6\uFF1A%r] %n[%d{yyyy-MM-dd HH:mm:ss}] %n[ %p ] - [%t \uFF1A %m] %n
+log4j.appender.E = org.apache.log4j.FileAppender
+log4j.appender.E.File = C:/Users/14561/Documents/Development/HTML/IDEA/【Hibermate】租房系统/log/error.log
+log4j.appender.E.Append = true
+log4j.appender.E.Threshold = ERROR
+log4j.appender.E.Encoding=UTF-8
+log4j.appender.E.layout = org.apache.log4j.PatternLayout
+log4j.appender.E.layout.ConversionPattern = [Error] %n[\u8017\u65F6\uFF1A%r] %n[\u9519\u8BEF\u4EA7\u751F\u65F6\u95F4\uFF1A%d{yyyy-MM-dd HH:mm:ss}] %n[\u9519\u8BEF\u7C7B\u540D\uFF1A%c] %n[ %p ] - [\u9519\u8BEF\u7EBF\u7A0B\uFF1A%t \uFF1A %m] %n
+-->

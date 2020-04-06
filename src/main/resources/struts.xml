@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+
+	<!-- 指定由spring负责action对象的创建 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 所有匹配*.action的请求都由struts2处理 -->
+	<constant name="struts.action.extension" value="action" />
+	<!--&lt;!&ndash; 是否启用开发模式,开发阶段最好开启 &ndash;&gt;
+	<constant name="struts.devMode" value="true" />
+	&lt;!&ndash; struts配置文件改动后，是否重新加载,开发阶段最好开启 &ndash;&gt;
+	<constant name="struts.configuration.xml.reload" value="true" />
+	&lt;!&ndash; 设置浏览器是否缓存静态内容,开发阶段最好关闭 &ndash;&gt;
+	<constant name="struts.serve.static.browserCache" value="false" />
+	&lt;!&ndash; 请求参数的编码方式 &ndash;&gt;
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	&lt;!&ndash; 每次HTTP请求系统都重新加载资源文件，有助于开发 &ndash;&gt;
+	<constant name="struts.i18n.reload" value="true" />
+	&lt;!&ndash; 文件上传最大值 &ndash;&gt;
+	<constant name="struts.multipart.maxSize" value="1024" />
+	&lt;!&ndash; 让struts2支持动态方法调用 &ndash;&gt;
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	&lt;!&ndash; Action名称中是否还是用斜线 &ndash;&gt;
+	<constant name="struts.enable.SlashesInActionNames" value="false" />
+	&lt;!&ndash; 允许标签中使用表达式语法 &ndash;&gt;
+	<constant name="struts.tag.altSyntax" value="true" />
+	&lt;!&ndash; 对于WebLogic,Orion,OC4J此属性应该设置成true &ndash;&gt;
+	<constant name="struts.dispatcher.parametersWorkaround" value="false" />
+	&lt;!&ndash; 含有Action类的路  从action包开始 &ndash;&gt;
+	<constant name="struts.convention.package.locators" value="com.qwq.action" />-->
+
+	<!--<package name="basicstruts2" extends="struts-default" namespace="/">-->
+	<!--<package name="basicstruts2" extends="struts-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		&lt;!&ndash;<default-action-ref name="defaultAction"/>&ndash;&gt;
+		&lt;!&ndash; 登录 &ndash;&gt;
+		&lt;!&ndash;<action name="login" class="com.qwq.action.LoginActionAction"/>&ndash;&gt;
+		<action name="login" class="login"/>
+		&lt;!&ndash; 注销 &ndash;&gt;
+		&lt;!&ndash;<action name="logout" class="com.qwq.action.Logout">&ndash;&gt;
+		<action name="logout" class="logout">
+			<result name="success" type="redirect">index.jsp</result>
+		</action>
+		&lt;!&ndash; 用户操作 &ndash;&gt;
+		&lt;!&ndash;<action name="userCenter_*" class="com.qwq.action.UserCenter" method="{1}">&ndash;&gt;
+		<action name="userCenter_*" class="userCenter" method="{1}">
+			<result name="console" type="redirect">console.jsp</result>
+			<result name="index" type="redirect">index.jsp</result>
+		</action>
+		&lt;!&ndash; 生成验证码 &ndash;&gt;
+		&lt;!&ndash;<action name="generateVerificationCode" class="com.qwq.action.VerificationCode" method="generateVerificationCode"/>&ndash;&gt;
+		<action name="generateVerificationCode" class="generateVerificationCode" method="generateVerificationCode"/>
+		&lt;!&ndash; 关于页面 &ndash;&gt;
+		<action name="about" class="about"/>
+		&lt;!&ndash; 404页面 &ndash;&gt;
+		<action name="defaultAction">
+			<result>404.html</result>
+		</action>
+	</package>-->
+
+
+
+</struts>

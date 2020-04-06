@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 设定数据库连接超时时间，以秒为单位。如果连接池中某个数据库连接处于空闲状态且超过规定的秒数时，就会从连接池中移除-->
+		<property name="hibernate.c3p0.timeout">120</property>
+		<!-- 连接池中最大连接数 -->
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
+		<!--<property name="hibernate.hbm2ddl.auto">update</property>-->
+		<property name="hibernate.show_sql">true</property>
+		<!--<property name="connection.username">scott</property>
+		<property name="connection.password">20000321</property>
+		<property name="connection.url">jdbc:oracle:thin:@//localhost:1521/rentManagement</property>
+		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<mapping class="com.qwq.entity.User"/>
+		<mapping class="com.qwq.entity.HouseType"/>
+		<mapping class="com.qwq.entity.House"/>
+		<mapping class="com.qwq.entity.District"/>
+		<mapping class="com.qwq.entity.Street"/>-->
+	</session-factory>
+</hibernate-configuration>
